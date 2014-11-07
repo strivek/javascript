@@ -7,14 +7,14 @@ window.onload = function() {
   var list = document.querySelectorAll(".item");
 
 
-  alert(list[0].stylew);
+  // alert(list[0].stylew);
+  console.warn("你好");
 
   function dwn(content) {
     document.write(content + "<br />");
   }
   for (var c in list) {
     document.write("属性名:" + c + "------------属性值:" + list[c] + "<br />");
+    c
   }
-
-
 }
