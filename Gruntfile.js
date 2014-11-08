@@ -49,9 +49,9 @@ module.exports = function(grunt) {
         src: ['angularjs/index.html'],
         ignorePath: /\.\.\//
       },
-      sass: {
-        src: ['angularjs/styles/{,*/}*.{scss,sass}'],
-        ignorePath: /(\.\.\/){1,2}bower_components\//
+      nav: {
+        src: ['angularjs/navToggle.html'],
+        ignorePath: /\.\.\//
       }
     },
     concurrent: {
@@ -69,4 +69,5 @@ module.exports = function(grunt) {
     }
   })
   grunt.registerTask('default', ['connect', 'wiredep', 'watch']);
+  grunt.registerTask('update', ['wiredep:nav'])
 }
