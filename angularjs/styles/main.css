@@ -7889,6 +7889,8 @@ button.close {
 /* line 6, main.scss */
 .wrap {
   width: 1024px;
+  overflow: hidden;
+  *zoom: 1;
   max-height: 400px;
   margin: 0 auto;
   border: 1px solid #000;
