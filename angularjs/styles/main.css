@@ -7886,12 +7886,15 @@ button.close {
     display: none !important;
   }
 }
-/* line 6, main.scss */
-.wrap {
-  width: 1024px;
-  overflow: hidden;
-  *zoom: 1;
-  max-height: 400px;
-  margin: 0 auto;
-  border: 1px solid #000;
+/* line 3, ../scss/index.scss */
+.m-list {
+  width: 200px;
+  height: 200px;
 }
+
+/* line 9, main.scss */
+.todolist {
+  width: 200px;
+}
+
+/*# sourceMappingURL=main.css.map */

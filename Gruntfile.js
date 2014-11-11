@@ -37,7 +37,7 @@ module.exports = function(grunt) {
       server: {
         options: {
           debugInfo: false,
-          sourcemap: false
+          sourcemap: true
         }
       }
     },
