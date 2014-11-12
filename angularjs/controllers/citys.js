@@ -1,7 +1,7 @@
 angular.module("citys")
-  .controller("citys", function($scope) {
+  .controller("cityListCtrl", function($scope) {
     $scope.data = {
-      citylist: [{
+      list: [{
         name: "北京",
         description: "历史古都",
         category: "beifang",

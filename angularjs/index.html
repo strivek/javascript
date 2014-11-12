@@ -28,11 +28,11 @@
   <script src="bower_components/angular-touch/angular-touch.js"></script>
   <script src="bower_components/angular-route/angular-route.js"></script>
   <!-- endbower -->
-  <script src="controllers/citys.js"> </script>
   <script>
    angular.module("citys",[]);
   </script>
-<body>
+  <script src="controllers/citys.js"></script>
+<body ng-controller="cityListCtrl">
 <div class="navbar navbar-inverse">
   <a href="#" class="navbar-brand">城市</a>
 </div>
@@ -40,9 +40,14 @@
     <div class="col-xs-3">
       <li> 地域列表</li>
     </div>
-    <div class="col-xs-9" ng-repeat="item in data.citylist">
-      <div class="well">
-        <h3><strong>{{item.name}}</strong><span></span></h3>
+    <div class="col-xs-9" >
+      <div class="well" ng-repeat="item in data.list">
+        <h3><strong>{{item.name}}</strong>
+          <span class="pull-right label label-primary">
+             {{item.pm  }}
+          </span>
+        </h3>
+        <spanc class="lead">{{item.description}}</span>
       </div>
     </div>
   </div>
