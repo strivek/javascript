@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="citys">
 <head>
   <meta charset="UTF-8">
   <title>文档首页</title>
-  <link rel="stylesheet" href="../styles/main.css">
+  <link rel="stylesheet" href="styles/main.css">
   <!-- bower:js -->
   <script src="bower_components/jquery/dist/jquery.js"></script>
   <script src="bower_components/es5-shim/es5-shim.js"></script>
@@ -28,15 +28,23 @@
   <script src="bower_components/angular-touch/angular-touch.js"></script>
   <script src="bower_components/angular-route/angular-route.js"></script>
   <!-- endbower -->
+  <script src="controllers/citys.js"> </script>
+  <script>
+   angular.module("citys",[]);
+  </script>
 <body>
- <div class="m-list">
-   <div class="item">这是一个列表列表列表</div>
-   <div class="item">这是一个列表列表列表</div>
-   <div class="item">这是一个列表列表列表</div>
-   <div class="item">这是一个列表列表列表</div>
-   <div class="item">这是一个列表列表列表</div>
- </div>
-</p>
-
+<div class="navbar navbar-inverse">
+  <a href="#" class="navbar-brand">城市</a>
+</div>
+  <div class="panel panel-default row">
+    <div class="col-xs-3">
+      <li> 地域列表</li>
+    </div>
+    <div class="col-xs-9" ng-repeat="item in data.citylist">
+      <div class="well">
+        <h3><strong>{{item.name}}</strong><span></span></h3>
+      </div>
+    </div>
+  </div>
 </body>
 </html>

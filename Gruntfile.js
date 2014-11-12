@@ -4,8 +4,8 @@ module.exports = function(grunt) {
   grunt.initConfig({
     watch: {
       html: {
-        files: ['angularjs/*.*'],
-        tasks: ['wiredep'],
+        files: ['angularjs/*.*', 'angularjs/*/*.*'],
+        task: ['wiredep'],
         options: {
           livereload: true
         },
@@ -17,10 +17,13 @@ module.exports = function(grunt) {
         files: ['angularjs/*.*']
       },
       compass: {
-        files: ['angularjs/styles/{,*/}*.{scss,sass}'],
+        files: ['angularjs/styles/{,*/}*.{scss,sass}',
+          'angularjs/scss/{,*/}*.{scss,sass}'
+        ],
         tasks: ['compass:server'],
         options: {
-          debounceDelay: 1000
+          debounceDelay: 1000,
+          livereload: true
         }
       }
     },
@@ -37,20 +40,13 @@ module.exports = function(grunt) {
       server: {
         options: {
           debugInfo: false,
-          sourcemap: true
+          sourcemap: false,
         }
       }
     },
     wiredep: {
-      options: {
-        cwd: ''
-      },
       app: {
-        src: ['angularjs/index.html'],
-        ignorePath: /\.\.\//
-      },
-      nav: {
-        src: ['angularjs/navToggle.html'],
+        src: ['angularjs/*.html'],
         ignorePath: /\.\.\//
       }
     },
@@ -61,13 +57,23 @@ module.exports = function(grunt) {
       liveroad: {
         options: {
           port: 8080,
-          base: 'angularjs',
+          base: '.',
           livereload: 35729,
-          open: true
+          open: true,
+          middleware: function(connect) {
+            return [
+              connect.static('angularjs'),
+              connect().use(
+                '/bower_components',
+                connect.static('./bower_components')
+              ),
+              connect.static("angularjs")
+            ];
+          }
         }
       }
     }
   })
   grunt.registerTask('default', ['connect', 'wiredep', 'watch']);
-  grunt.registerTask('update', ['wiredep:nav'])
+  grunt.registerTask('update', ['wiredep'])
 }
